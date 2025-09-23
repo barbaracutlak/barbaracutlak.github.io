@@ -20,10 +20,11 @@ a {
   color: rgb(0, 0, 0);
   font-family: "Satoshi-Medium", sans-serif;
   text-decoration: none;
+  transition: background-color 0.3s;
 }
 a:hover {
-  color: rgb(255, 106, 0);
-  text-decoration: underline;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
 }
 
 
