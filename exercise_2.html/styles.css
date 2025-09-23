@@ -23,8 +23,8 @@ a {
   transition: background-color 0.3s;
 }
 a:hover {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
+  color: yellow;
+  background-color: yellow;
 }
 
 
