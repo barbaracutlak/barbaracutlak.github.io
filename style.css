@@ -1,0 +1,97 @@
+@font-face {
+font-family: "compagnon";
+  src: url("fonts/Compagnon-Light.woff2") format("woff2"),
+      url("fonts/Compagnon-Light.woff") format("woff");
+      ;
+}
+
+@font-face {      
+  font-family: "satoshi";
+  src: url("fonts/Satoshi-Medium.woff2") format("woff2"),
+      url("fonts/Satoshi-Medium.woff") format("woff");    
+}
+
+body {
+  font-family: "satoshi", sans-serif;
+  font-size: 16px;
+  line-height: 1.6
+}
+
+
+/* links */
+a {
+  color: rgb(0, 0, 0);
+  font-family: "satoshi", sans-serif;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+a:hover {
+  color: rgb(255, 255, 255);
+  background-color: none;
+}
+
+
+/* text */
+
+h1 {
+  font-family: "compagnon";
+  color: rgb(0, 0, 0);
+  font-size: 52px;
+}
+
+h2 {
+  font-family: "compagnon";
+  color: rgb(0, 0, 0);
+  font-size: 32px;
+}
+
+h3 {
+  font-family: "compagnon";
+  color: rgb(0, 0, 0);
+  font-size: 52px;
+}
+
+p { 
+  font-family: "satoshi", sans-serif;
+  color: black;
+}
+
+
+ /* boxes */
+
+.box-1 {
+  box-sizing:border-box; 
+  width: 400px;               /* fixed width */
+    margin-top: 0px;     
+    margin-left: 0px;     
+    padding: auto;
+    background-color: rgb(251, 255, 0);
+    border: 0;
+    text-align: center;
+    }
+
+.box-2 {
+     width: 100px;               /* fixed width */
+    margin: 10px;          /* centers the box */
+    padding: 5px;
+    background-color: lightblue;
+    border: 1px solid #333;
+    border-radius: 20px;
+    text-align: center;
+    }
+
+
+  .container {
+  display: flex;
+  justify-content: space-between; /* space items horizontally */
+  align-items: center;            /* align items vertically */
+  } 
+
+
+
+  button {
+    background-color: rgb(255, 255, 0);
+      border-radius: 20px;
+    text-align: center;
+     border: 1px solid #333;
+  }

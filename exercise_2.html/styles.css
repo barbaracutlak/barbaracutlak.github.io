@@ -1,43 +1,163 @@
 
-@font-face {
-font-family: "Satoshi-Medium";
-  src: url("fonts/Satoshi-Medium.woff") format("woff2"),
-      url("fonts/Satoshi-Medium.woff2") format("woff2");
+/* typefaces */
 
-font-family: "Compagnon-Light";
-  src: url("fonts/Compagnon-Light.woff") format("woff2"),
-      url("fonts/Compagnon-Light.woff2") format("woff2");
+@font-face {
+font-family: "compagnon";
+  src: url("fonts/Compagnon-Light.woff2") format("woff2"),
+      url("fonts/Compagnon-Light.woff") format("woff");
+      ;
 }
 
+@font-face {      
+  font-family: "satoshi";
+  src: url("fonts/Satoshi-Regular.woff2") format("woff2"),
+      url("fonts/Satoshi-Regular.woff2") format("woff");    
+}
+
+@font-face {      
+  font-family: "satoshi-italic";
+  src: url("fonts/Satoshi-MediumItalic.woff2") format("woff2"),
+      url("fonts/Satoshi-MediumItalic.woff") format("woff");    
+}
+
+@font-face {      
+  font-family: "atlantique";
+  src: url("fonts/AtlantiqueMiami-BoldItalic.woff2") format("woff2"),
+      url("fonts/AtlantiqueMiami-BoldItalic.woff") format("woff");    
+}
+
+
+/* general */
+
 body {
-  font-family: "Satoshi-Medium", sans-serif;
-  font-size: 16px;
-  line-height: 1.6
+  background-color: #FFFFEF;
+  font-family: "satoshi", sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  color: rgb(0, 29, 110);
+  margin: 0;
+  padding: 0;
 }
 
 /* links */
 a {
-  color: rgb(0, 0, 0);
-  font-family: "Satoshi-Medium", sans-serif;
+  color: rgb(255, 0, 221);
   text-decoration: none;
-  transition: background-color 0.3s;
+  transition: 0.3s;
 }
 a:hover {
-  color: yellow;
   background-color: yellow;
 }
 
 
+/* text */
+
 h1 {
-  font-family: "Compagnon-Light";
-  color: rgb(0, 0, 0);
-  font-size: 52px;
+  font-family: "compagnon";
+  font-size: 70px;
+  margin: 0;
+}
+
+h2 {
+  font-family: "compagnon";
+  font-size: 100px;
+  margin: 0;
+}
+
+h3 {
+  font-family: "compagnon";
+  font-size: 2em;
+  color: rgb(255, 0, 221);
+  margin: 0;
 }
 
 p { 
-  font-family: "Satoshi-Medium", sans-serif;
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+blockquote {
+    font-family: "atlantique";
+    font-size: 0.9em;
+    margin-block-start: 2em;
+    margin-block-end: 2em;
+    margin-inline-start: 120px;
+    margin-inline-end: 120px;
+}
+
+.indent { 
+  text-indent: -120px;
+  margin-left: 120px;
+  padding: 0;
+}
+
+.mark-up-1 {
+  background: yellow;
   color: black;
 }
+
+.mark-up-2 {
+  background: yellow;
+  color: black;
+}
+
+.button {
+  font-family: "compagnon";
+  font-size: 50px;
+  margin: 0;
+}
+
+
+/* divs */
+
+* {
+		box-sizing: border-box;
+	}
+
+.container {
+	max-width: 750px;
+  margin-top: 50px;
+	margin-left: 50px;
+	margin-right: auto;
+  margin-bottom: 100px;
+}
+
+.left-nav,
+.right-nav {
+  position: fixed;  
+  bottom: 50px;
+  z-index: 100;
+
+  background: yellow;
+  border: 3px solid rgb(0, 29, 110);
+  border-radius: 100px;
+
+  padding: 5px 12px;
+  display: inline-flex; 
+  align-items: center;    
+  justify-content: center;
+
+}
+
+.left-nav { left: 50px; }
+.right-nav { right: 50px; }
+
+.nav-button {
+  font-family: "compagnon";
+  font-size: 80px;
+  line-height: 1;
+  
+  cursor: pointer;
+  transition: 0.3s;
+  color: rgb(0, 29, 110);
+  text-decoration: none; /* remove underline */
+}
+
+.nav-button:hover {
+  color: rgb(0, 29, 110);
+}
+
 
 
 section {
@@ -46,9 +166,5 @@ section {
   width: 600px;
   margin: 0 auto; 
 }
-  .one {
-    background-color: rgb(255, 255, 0);
-     padding: 10px 20px 10px 20px;
-  width: 600px;
-  margin: 0 auto; 
-}
+
+
