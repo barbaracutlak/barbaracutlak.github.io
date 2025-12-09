@@ -1,31 +1,89 @@
 
-/* fixed boxes */
+html, body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* space between items */
+  justify-content: center;  /* horizontal */
+  align-items: center;      /* vertical */
 
-.container {
-      display: flex;   /* puts divs next to each other */
-      /* gap: 20px;       space between them */
-     align-items: flex-end;  /* aligns boxes to the bottom */
+  background: linear-gradient(180deg, yellow, black);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
-.rectangle-1 {
 
+/* LETTER 1 */
+
+.rec-1 {
   margin-left: 10px;
-    margin-top: 50px;
-    background-color: rgb(199, 227, 255);
-    border: 1px solid rgb(0, 0, 0);
-    width: 50px;
-    height: 300px;
-    }
+  margin-top: 50px;
+  background-color: rgb(199, 227, 255);
+  border: 1px solid rgb(0, 0, 0);
+  width: 50px;
+  height: 300px;
+}
+
+.rec-2 {
+  background-color: rgb(199, 227, 255);
+  border: 1px solid rgb(0, 0, 0);
+  width: 200px;
+  height: 200px;
+  }    
 
 
-.rectangle-2 {
-flex: -10
-    margin-left: 100px;
-    margin-top: 50px;
-    background-color: rgb(199, 227, 255);
-    border: 1px solid rgb(0, 0, 0);
-    width: 200px;
-    height: 200px;
-    }    
+  
+/* LETTER 2 */
+
+.rec-2 {
+  background-color: rgb(199, 227, 255);
+  border: 1px solid rgb(0, 0, 0);
+  width: 200px;
+  height: 200px;
+  }    
+
+
+/* LETTER 3 */
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background: red;
+  border-radius: 50%;
+  margin: 0 auto; /* centers horizontally */
+  display: block;
+}
+
+
+/* LETTER 4 */
+
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 80px solid red;
+
+  margin: 0 auto; /* centers horizontally */
+  display: block;
+}
+
+.container {
+  display: flex;
+}
+
+
+/* LETTER 5 */
+
+.square {
+  width: 100px;
+  height: 100px;
+  background: red;
+  margin: 0 auto; /* centers horizontally */
+  display: block;
+}
+
 

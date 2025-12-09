@@ -154,8 +154,14 @@ blockquote {
   text-decoration: none; /* remove underline */
 }
 
-.nav-button:hover {
+.nav-button a {
   color: rgb(0, 29, 110);
+  background-color: none;
+}
+
+.nav-button a:hover {
+  color: rgb(0, 29, 110);
+  background-color: none;
 }
 
 
