@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>imagine a object</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <nav class="top-nav">
+        <h1 class="nav-title">imagine a object:</h1>
+        <div class="nav-tools">
+            <label for="colorPicker">color</label>
+            <input type="color" id="colorPicker" value="#00ff00">
+
+            <label for="brushSize">brush</label>
+            <input type="range" id="brushSize" min="1" max="50" value="5">
+            <span class="size-display" id="sizeDisplay">5</span>
+
+            <button id="undoBtn">undo</button>
+            <button id="clearBtn" class="clear">clear</button>
+            <button id="downloadBtn">download</button>
+        </div>
+    </nav>
+
+    <div class="canvas-container">
+        <canvas id="canvas"></canvas>
+        <img id="centerImage" class="center-image" alt="Center artifact">
+        <img id="bgImage" alt="Background" style="display: none;">
+    </div>
+
+    <a href="../index.html" class="arrow-button">
+        <img src="svg/arrow.png" alt="Back arrow">
+    </a>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Drawing Canvas</title>
+
+</head>
+
+<body>
+    <link rel="stylesheet" href="style.css" />
+    <div class="container">
+        <h1>sherds</h1>
+
+        <div class="toolbar">
+            <div class="tool-group">
+                <label for="colorPicker">Color:</label>
+                <input type="color" id="colorPicker" value="#00ff00">
+            </div>
+
+            <div class="tool-group">
+                <label for="brushSize">Brush Size:</label>
+                <input type="range" id="brushSize" min="1" max="50" value="5">
+                <span class="size-display" id="sizeDisplay">5</span>
+            </div>
+
+            <button id="clearBtn" class="clear">Clear</button>
+        </div>
+
+        <canvas id="canvas" width="1920" height="600"></canvas>
+        <img id="bgImage" alt="Background">
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const colorPicker = document.getElementById('colorPicker');
+        const brushSize = document.getElementById('brushSize');
+        const sizeDisplay = document.getElementById('sizeDisplay');
+        const clearBtn = document.getElementById('clearBtn');
+        const bgImage = document.getElementById('bgImage');
+
+        let isDrawing = false;
+        let currentColor = '#00ff00';
+        let currentSize = 5;
+
+        // Load the uploaded image using window.fs
+        // ⬇️ CHANGE THE FILENAME HERE ⬇️
+        async function loadImage() {
+            try {
+                const imageData = await window.fs.readFile('54-142-59.png');  // ← Change 'image.png' to your filename
+                const blob = new Blob([imageData], { type: 'image/png' });
+                const url = URL.createObjectURL(blob);
+                bgImage.src = url;
+            } catch (error) {
+                console.error('Error loading image:', error);
+            }
+        }
+
+        loadImage();
+
+        // Wait for image to load before drawing
+        bgImage.onload = function () {
+            ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+        };
+
+        // If image is already cached, draw immediately
+        if (bgImage.complete) {
+            ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+        }
+
+        // Update brush size display
+        brushSize.addEventListener('input', (e) => {
+            currentSize = e.target.value;
+            sizeDisplay.textContent = currentSize;
+        });
+
+        // Update color
+        colorPicker.addEventListener('input', (e) => {
+            currentColor = e.target.value;
+        });
+
+        // Clear canvas
+        clearBtn.addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+        });
+
+        // Get mouse/touch position relative to canvas
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const x = (e.clientX || e.touches[0].clientX) - rect.left;
+            const y = (e.clientY || e.touches[0].clientY) - rect.top;
+            return { x, y };
+        }
+
+        // Start drawing
+        function startDrawing(e) {
+            isDrawing = true;
+            const pos = getPos(e);
+            ctx.beginPath();
+            ctx.moveTo(pos.x, pos.y);
+        }
+
+        // Draw
+        function draw(e) {
+            if (!isDrawing) return;
+
+            e.preventDefault();
+            const pos = getPos(e);
+
+            ctx.lineTo(pos.x, pos.y);
+            ctx.strokeStyle = currentColor;
+            ctx.lineWidth = currentSize;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.stroke();
+        }
+
+        // Stop drawing
+        function stopDrawing() {
+            isDrawing = false;
+            ctx.beginPath();
+        }
+
+        // Mouse events
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        // Touch events for mobile
+        canvas.addEventListener('touchstart', startDrawing);
+        canvas.addEventListener('touchmove', draw);
+        canvas.addEventListener('touchend', stopDrawing);
+    </script>
+</body>
+
+</html>
