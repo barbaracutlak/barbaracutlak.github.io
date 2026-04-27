@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-    <title>continue the pattern</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Drawing Tool</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <nav class="top-nav">
-        <h1 class="nav-title">continue the pattern:</h1>
-        <div class="nav-tools">
-            <label for="colorPicker">color</label>
+    <div id="canvas3d"></div>
+
+    <!-- Center pottery shard image -->
+    <img src="images/54-142-63.png" alt="Pottery Shard" class="center-image" id="centerImage">
+
+    <div class="controls">
+        <h3>3D Drawing</h3>
+
+        <label>
+            Color:
             <input type="color" id="colorPicker" value="#00ff00">
+        </label>
 
-            <label for="brushSize">brush</label>
-            <input type="range" id="brushSize" min="1" max="50" value="5">
-            <span class="size-display" id="sizeDisplay">5</span>
+        <label>
+            Brush Size: <span id="sizeDisplay">0.1</span>
+            <input type="range" id="brushSize" min="0.01" max="0.5" step="0.01" value="0.1">
+        </label>
 
-            <button id="undoBtn">undo</button>
-            <button id="clearBtn" class="clear">clear</button>
-            <button id="downloadBtn">download</button>
-        </div>
-    </nav>
+        <label>
+            Image Size: <span id="imageSizeDisplay">30</span>%
+            <input type="range" id="imageSize" min="10" max="60" value="30">
+        </label>
 
-    <div class="canvas-container">
-        <canvas id="canvas"></canvas>
-        <img id="centerImage" class="center-image" alt="Center artifact">
-        <img id="bgImage" alt="Background" style="display: none;">
+        <button id="clearBtn">Clear All</button>
+        <button id="undoBtn">Undo Last</button>
     </div>
 
-    <a href="../index.html" class="arrow-button">
-        <img src="svg/arrow.png" alt="Back arrow">
-    </a>
+    <div class="info">
+        <strong>Controls:</strong><br>
+        Left Click + Drag: Draw<br>
+        Right Click + Drag: Rotate Camera<br>
+        Scroll: Zoom In/Out
+    </div>
 
-
-
-
-
-    // Add Three.js to your HTML first:
-    //
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
     <script src="script.js"></script>
 </body>
 
