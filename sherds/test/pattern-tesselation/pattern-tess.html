@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tessellation Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Pottery Shard Tessellation</h1>
+
+    <div class="controls">
+        <div class="control-group">
+            <label>Points: <span id="pointsValue">300</span></label>
+            <input type="range" id="pointsSlider" min="50" max="1000" value="300">
+        </div>
+
+        <div class="control-group">
+            <label>Style:</label>
+            <select id="styleSelect">
+                <option value="triangles">Triangles</option>
+                <option value="wireframe">Wireframe</option>
+                <option value="flat">Flat Polygons</option>
+            </select>
+        </div>
+
+        <button id="generateBtn">Generate Tessellation</button>
+        <button id="downloadBtn">Download Image</button>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/delaunator@5.0.0/delaunator.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
